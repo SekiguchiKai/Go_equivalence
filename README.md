@@ -36,8 +36,8 @@ they have the same length, and either they point to the same initial entry of th
  &x[0] == &y[0]) or their corresponding elements (up to length) are deeply equal.
  Note that a non-nil empty slice and a nil slice (for example, []byte{} and []byte(nil)) are not deeply equal.
 
-(意訳)Sliceの値は、次の条件がすべて成立している場合には、等しくなる。
-1. Sliceの値は、nilまたはnon-nilの両方である
+(意訳)Sliceの値は、次の条件がすべて成立している場合には等しくなる。
+1. Sliceの値は、両方ともnilまたはnon-nilである
 2. 同じ長さである
 3. 元になる配列が（つまり＆x [0 ] ==＆y [0]）同一か、対応する要素が全部deeply equalである
 ! 空でない(non-nil)Sliceと空(nil)のSliceと無限スライス（たとえば、[]byte{}と[] byte（nil））はdeeply equalにならないことに注意。
@@ -51,7 +51,7 @@ they have the same length, and either they point to the same initial entry of th
 
 ### struct1==struct1と&struct1==&struct1とreflect.DeepEqual
 ### 等値を確認したい時
-&structでもって、比較する。アドレスを比較し、指しているものが「完全に同一か」どうかを確認する。`&struct1 == &struct2` を用いる。
+&structでもって、比較する。アドレスを比較し、指しているものが「完全に同一か」どうかを確認する。`&struct1 == &struct2` を用いる。(アドレスを比較すので&をつけてつけて比較)
 `reflect.DeepEqual(&struct1, &struct2)` は一見等値に見えるが、そうではないので注意!
 
  
